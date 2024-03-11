@@ -1,6 +1,8 @@
 package com.example.demo.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
 @Entity
@@ -12,9 +14,13 @@ public class User {
     private Long id;
 
     @Column(name = "name")
+    @NotBlank(message = "Name can't be empty")
+    @Size(min=1 , max=255, message = "Name must be between 1 and 255 characters")
     private String firstName;
 
     @Column(name = "last_name")
+    @NotBlank(message = "Name can't be empty")
+    @Size(min=1 , max=255, message = "Last name must be between 1 and 255 characters")
     private String lastName;
 
     public User() { }
